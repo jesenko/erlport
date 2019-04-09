@@ -236,7 +236,7 @@ class MessageHandler(object):
             exc = Atom(bytes("%s.%s" % (t.__module__, t.__name__), "utf-8"))
             exc_tb = extract_tb(tb)
             exc_tb.reverse()
-            error = Atom(b"python"), exc, str(val), exc_tb
+            error = Atom(b"python"), exc, str(val), str(exc_tb)
             if mid is not None:
                 result = Atom(b"e"), mid, error
             else:
